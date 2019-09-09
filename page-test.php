@@ -33,6 +33,27 @@ get_header(); ?>
 
 
 
+$html_el = "H1";
+
+
+echo "setting_text_decoration:  ". get_theme_mod("setting_text_decoration_" . $html_el, "") ."</br>";
+echo "setting_text_align:  " .get_theme_mod("setting_text_align_" . $html_el, "") ."</br>";
+
+
+
+echo '<p>';
+
+foreach($mods as $key => $value)
+	{
+
+		$htmls_els = ["setting_graisse_H1", "setting_graisse_H2", "setting_graisse_H3", "setting_graisse_p"];
+
+		if (in_array($key, $htmls_els))
+		{
+			echo  $key . "  => " . $value . "</br></br>";
+		}
+	}
+echo "</p>";
 			?>
 			<div class="vardump">
 			<h1>$mods</h1>

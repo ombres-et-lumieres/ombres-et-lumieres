@@ -66,7 +66,7 @@ function oel_polices_titres($wp_customize, $section, $setting_name, $id_control,
 										"settings" => $setting_name,
 										"type" => "select",
 										"choices"=> array(
-															"défaut" => "",
+															"" => "défaut",
 															"Euphoria" => "Euphoria",
 															"Raleway" => "Raleway",
 															"Dancing Script" => "Dancing Script"
@@ -99,7 +99,7 @@ function oel_polices_texte($wp_customize, $section, $setting_name, $id_control, 
 										"settings" => $setting_name,
 										"type" => "select",
 										"choices"=> array(
-															"défaut" 			 => "",
+															"" 			 => "défaut",
 															"Open Sans"  => "Open Sans",
 															"Roboto" 	 => "Roboto",
 															"Gayathri" 	 => "Gayathri",
@@ -131,6 +131,7 @@ function oel_graisse_setting($wp_customize, $section, $setting_name, $id_control
 										"settings" => $setting_name,
 										"type" => "select",
 										"choices"=> array(
+															""           => "défaut",
 															"100"        => "100",
 															"200"        => "200",
 															"300"        => "300",
@@ -168,7 +169,7 @@ function oel_style_setting($wp_customize, $section, $setting_name, $id_control, 
 										"settings" => $setting_name,
 										"type" => "select",
 										"choices"=> array(
-															""        => "",
+															""        => "défaut",
 															"Italic"  => "Italic",
 															"Regular" => "Regular",
 														)
@@ -199,7 +200,7 @@ function oel_transformation_setting($wp_customize, $section, $setting_name, $id_
 										"settings" => $setting_name,
 										"type" => "select",
 										"choices"=> array(
-															"" => "",
+															"" => "défaut",
 															"capitalize" => "capitalize",
 															"uppercase" => "uppercase",
 															"lowercase" => "lowercase",
@@ -230,7 +231,7 @@ function oel_text_decoration_setting($wp_customize, $section, $setting_name, $id
 										"settings" => $setting_name,
 										"type" => "select",
 										"choices"=> array(
-															""             => "",
+															""             => "défaut",
 															"underline"    => "underline",
 															"overline" 	   => "overline",
 															"line-through" => "line-through",
@@ -286,7 +287,7 @@ function oel_text_align_setting($wp_customize, $section, $setting_name, $id_cont
 										"settings" => $setting_name,
 										"type" => "select",
 										"choices"=> array(
-															"" 		  => "",
+															""  	  => "défaut",
 															"left" 	  => "left",
 															"right"   => "right",
 															"center"  => "center",
@@ -317,7 +318,7 @@ function oel_text_decoration_style_setting($wp_customize, $section, $setting_nam
 										"settings" => $setting_name,
 										"type" => "select",
 										"choices"=> array(
-															""             => "",
+															""       => "défaut",
 															"solid"  => "solid",
 															"double" => "double",
 															"dotted" => "dotted",

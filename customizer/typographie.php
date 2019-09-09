@@ -40,25 +40,37 @@ function oetl_typographie($wp_customize)
 			{
 				oel_polices_titres($wp_customize, $section, "setting_police_" . $section, "control_police_" . $section, "Choisissez la police de caractère pour le titre " . $section);
 
-				oel_text_decoration_setting($wp_customize, $section, "setting_text_decoration_" . $section, "control_text_decoration_" . $section, "Choisissez la décoration pour le titre " . $section);
+				oel_text_decoration_setting($wp_customize, $section, "setting_decoration_" . $section, "control_decoration_" . $section, "Choisissez la décoration pour le titre " . $section);
 
-				oel_text_align_setting($wp_customize, $section, "setting_text_decoration_" . $section, "control_text_align_" . $section, "Choisissez l' alignement pour le titre " . $section);
+				oel_text_align_setting($wp_customize, $section, "setting_align_" . $section, "control_align_" . $section, "Choisissez l' alignement pour le titre " . $section);
 
-				oel_text_decoration_style_setting($wp_customize, $section, "setting_text_decoration_style_" . $section, "control_text_decoration_" . $section, "Choisissez le style de décoration pour le titre " . $section);
- 			}
+				oel_text_decoration_style_setting($wp_customize, $section, "setting_decoration_style_" . $section, "control_text_decoration_" . $section, "Choisissez le style de décoration pour le titre " . $section);
+
+				oel_color_setting($wp_customize, $section, "setting_couleur_" . $section, "control_couleur_" . $section, "choisissez la couleur de " . $section);
+			}
+
 
 
 			if ($section == "texte")
 			{
-				oel_polices_texte($wp_customize, $section, "setting_police_p", "control_police_p", "Choisissez la police de caractère pour le texte");
+				oel_polices_texte($wp_customize, $section, "setting_police_p", "control_police_p", "Choisissez la police de caractère pour le paragraphe");
 
-				oel_text_align_setting($wp_customize, $section,  "setting_police_p", "control_police_p", "Choisissez l' alignement pour le texte");
+				oel_text_align_setting($wp_customize, $section,  "setting_align_p", "control_align_p", "Choisissez l' alignement pour le paragraphe");
 
+				oel_color_setting($wp_customize, $section, "setting_couleur_p", "control_couleur_p", "choisissez la couleur du texte du paragraphe");
+
+				oel_taille_setting($wp_customize, $section, "setting_taille_p", "control_taille_p", "choisissez la taille de caractère du paragraphe");
+
+				oel_graisse_setting($wp_customize, $section, "setting_graisse_p", "control_graisse_p", "choisissez la graisse du caractère du paragraphe ");
+
+				oel_style_setting($wp_customize, $section, "setting_style_p", "control_style_p", "choisissez le style du paragraphe" );
 			}
 
 
-			if ($section != "lien")
+			if ($section != ("lien" and "texte"))
 			{
+			  //	if($section == "texte") {$section = "p";};
+
 				oel_taille_setting($wp_customize, $section, "setting_taille_" . $section, "control_taille_" .$section, "choisissez la taille de " . $section);
 
 
@@ -76,9 +88,8 @@ function oetl_typographie($wp_customize)
 
 				oel_hauteur_setting($wp_customize, $section, "setting_hauteur_" . $section, "control_hauteur_" . $section, "choisissez la hauteur de ligne " . $section);
 
-
-				oel_color_setting($wp_customize, $section, "setting_couleur_" . $section, "control_couleur_" . $section, "choisissez la couleur de " . $section);
 			}
+
 			else
 				{
 					$liens = ["normal", "hover", "visited"];
