@@ -39,9 +39,36 @@ $html_el = "H1";
 echo "setting_text_decoration:  ". get_theme_mod("setting_text_decoration_" . $html_el, "") ."</br>";
 echo "setting_text_align:  " .get_theme_mod("setting_text_align_" . $html_el, "") ."</br>";
 
+echo "setting taille titre:  ". get_theme_mod("setting_taille_H1" , "") ."</br>";
 
+echo "color:" . get_theme_mod("setting_couleur_a" . $lien, "#000000") ."</br>"  ;
 
 echo '<p>';
+
+
+
+$liens = ["a", "a:hover", "a:visited"];
+
+foreach ($liens as $lien)
+	{
+		echo "setting_couleur_"	.$lien .": " . get_theme_mod("setting_couleur_" . $lien, "#000000") .  "</br>";
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 foreach($mods as $key => $value)
 	{

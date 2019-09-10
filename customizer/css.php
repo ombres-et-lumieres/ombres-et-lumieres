@@ -3,21 +3,59 @@ function oetl_customize_css()
 {
 	?>
 
-	<style type="text/css" > /* style du customizer */
+	<style id = "customizer" type="text/css" > /* style du customizer */
 
-	  body{background-color: <?php echo get_theme_mod("setting_couleur_page", "#000000") ?> ;}
+	  body{
+		  background-color: <?php echo get_theme_mod("setting_couleur_page", "#000000") ?> ;
+		  color: <?php echo get_theme_mod("setting_couleur_texte", "#000000") ?> ;
+		  font-size: <?php echo get_theme_mod("setting_taille_texte", "12"). "px" ?> ;
+		  line-height: <?php echo get_theme_mod("setting_hauteur_ligne", "1") ?> ;
+		  font-family: <?php echo get_theme_mod("setting_police_texte", "") ?> ;
+		  font-weight: <?php echo get_theme_mod("setting_graisse_texte", "") ?> ;
+		  font-style: <?php echo get_theme_mod("setting_style_texte", "") ?> ;
+		  text-align: <?php echo get_theme_mod("setting_align_texte", "") ?> ;
+		  }
+
+
+
+	  body.single{
+		  font-size: <?php echo get_theme_mod("setting_taille_police_article", "1"). "em" ?> ;
+		  line-height: <?php echo get_theme_mod("setting_hauteur_ligne_article", "1") ?> ;
+		  font-family: <?php echo get_theme_mod("setting_police_article", "") ?> ;
+		  font-weight: <?php echo get_theme_mod("setting_graisse_texte_article", "") ?> ;
+		  text-align: <?php echo get_theme_mod("setting_align_article", "") ?> ;
+		  font-style: normal;
+	  }
+
+	  body.single h1{
+		  font-size: <?php echo get_theme_mod("setting_taille_police_article_H1", "1"). "em"  ?> ;
+		  font-family: <?php echo get_theme_mod("setting_police_article", "") ?> ;
+	  }
+
+
+	  body.single H2{
+		  font-size: <?php echo get_theme_mod("setting_taille_police_article_H2", "1"). "em"  ?> ;
+		  font-family: <?php echo get_theme_mod("setting_police_article", "") ?> ;
+	  }
+
+
+	  body.single h3{
+		  font-size: <?php echo get_theme_mod("setting_taille_police_article_H3", "1"). "em"  ?> ;
+		  font-family: <?php echo get_theme_mod("setting_police_article", "") ?> ;
+	  }
+
+
 
 	  <?php
-	  $htmls_els = ["H1", "H2", "H3", "p"];
 
-	 //$titres = ["H1", "H2", "H3"];
+	  $htmls_els = ["H1", "H2", "H3"];
 
 	  foreach($htmls_els as $html_el)
 	  {
 		  echo $html_el?>{
 		   font-family: <?php echo get_theme_mod("setting_police_". $html_el, "") ?> ;
 		   color: <?php echo get_theme_mod("setting_couleur_" . $html_el, "#000000") ?> ;
-		   font-size: <?php echo get_theme_mod("setting_taille_" .  $html_el, "100%") ?>;
+		   font-size: <?php echo get_theme_mod("setting_taille_" .  $html_el, "1"). "em" ?>;
 		   font-style: <?php echo get_theme_mod("setting_style_" .$html_el, "") ?> ;
 		   font-weight: <?php echo get_theme_mod("setting_graisse_" . $html_el, "") ?> ;
 		   line-height: <?php echo get_theme_mod("setting_hauteur_" . $html_el, "") ?> ;

@@ -696,6 +696,12 @@ a:hover, a:active {
 	display: block;
 }
 
+ul.menu {
+	color: white;
+}
+
+
+
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
 		display: none;
@@ -982,6 +988,4 @@ object {
 	max-width: 11.11%;
 }
 
-.gallery-caption {
-	display: block;
-}
+.gallery

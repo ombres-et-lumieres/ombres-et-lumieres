@@ -35,15 +35,45 @@ function oel_taille_setting($wp_customize, $section, $setting_name, $id_control,
 
 	$wp_customize->add_control( $setting_name,
 								array(
-									'label'    => __($label . "(entrez des valeurs en px, em ou %)"),
+									'label'    => __($label),
 									'section'  => $section,
 									'settings' => $setting_name,
-									'type'     => 'text',
+									'type'     => 'number',
+									'input_attrs' => array(
+													        'min'   => 1,
+													        'max'   => 4,
+													        'step'  => 0.1,
+													    ),
 									)
 								);
 }
 
+function oel_taille_setting_px($wp_customize, $section, $setting_name, $id_control, $label)
+{
+	$wp_customize->add_setting( $setting_name,
+								array(
+									    "capability" => "edit_posts",
+									    "default" => get_theme_mod($setting_name, "" )
+									)
+								);
 
+
+
+
+	$wp_customize->add_control( $setting_name,
+								array(
+									'label'    => __($label . "(en px)"),
+									'section'  => $section,
+									'settings' => $setting_name,
+									'type'     => 'number',
+									'input_attrs' => array(
+													        'min'   => 1,
+													        'max'   => 25,
+													        'step'  => 1,
+													    ),
+									)
+								);
+}
 
 function oel_polices_titres($wp_customize, $section, $setting_name, $id_control, $label)
 {
@@ -126,7 +156,7 @@ function oel_graisse_setting($wp_customize, $section, $setting_name, $id_control
 
 	$wp_customize->add_control($id_control,
 								array(
-										"label" => $label . "(attention certaines polices n' ont pas ces capacités)",
+										"label" => $label,
 										"section" => $section,
 										"settings" => $setting_name,
 										"type" => "select",
@@ -164,14 +194,14 @@ function oel_style_setting($wp_customize, $section, $setting_name, $id_control, 
 
 	$wp_customize->add_control($id_control,
 								array(
-										"label" => $label . "(attention certaines polices n' ont pas ces capacités)",
+										"label" => $label,
 										"section" => $section,
 										"settings" => $setting_name,
 										"type" => "select",
 										"choices"=> array(
 															""        => "défaut",
 															"Italic"  => "Italic",
-															"Regular" => "Regular",
+															"normal" => "normal",
 														)
 									)
 
@@ -238,31 +268,6 @@ function oel_text_decoration_setting($wp_customize, $section, $setting_name, $id
 														)
 									)
 
-								);
-}
-
-
-
-
-function oel_hauteur_setting($wp_customize, $section, $setting_name, $id_control, $label)
-{
-	$wp_customize->add_setting( $setting_name ,
-								array(
-									   "default" => get_theme_mod($setting_name, "" ),
-									    //'sanitize_callback' => 'sanitize_hex_color',
-									)
-								);
-
-
-
-
-	$wp_customize->add_control($id_control,
-								array(
-									'label'    => __( $label, 'ombres-et-lumieres' ),
-									'section'  =>$section,
-									'settings' => $setting_name,
-									'type'     => 'number',
-									)
 								);
 }
 
