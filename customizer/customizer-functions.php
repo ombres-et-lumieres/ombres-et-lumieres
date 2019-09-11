@@ -21,7 +21,7 @@ function oel_color_setting($wp_customize, $section, $setting_name, $id_control, 
 }
 
 
-function oel_taille_setting($wp_customize, $section, $setting_name, $id_control, $label)
+function oel_size_setting($wp_customize, $section, $setting_name, $id_control, $label)
 {
 	$wp_customize->add_setting( $setting_name,
 								array(
@@ -48,7 +48,7 @@ function oel_taille_setting($wp_customize, $section, $setting_name, $id_control,
 								);
 }
 
-function oel_taille_setting_px($wp_customize, $section, $setting_name, $id_control, $label)
+function oel_size_setting_px($wp_customize, $section, $setting_name, $id_control, $label)
 {
 	$wp_customize->add_setting( $setting_name,
 								array(
@@ -75,7 +75,7 @@ function oel_taille_setting_px($wp_customize, $section, $setting_name, $id_contr
 								);
 }
 
-function oel_polices_titres($wp_customize, $section, $setting_name, $id_control, $label)
+function oel_font_family_Hn($wp_customize, $section, $setting_name, $id_control, $label)
 {
 
 	$wp_customize->add_setting($setting_name,
@@ -108,7 +108,7 @@ function oel_polices_titres($wp_customize, $section, $setting_name, $id_control,
 
 
 
-function oel_polices_texte($wp_customize, $section, $setting_name, $id_control, $label)
+function oel_font_family($wp_customize, $section, $setting_name, $id_control, $label)
 {
 
 	$wp_customize->add_setting($setting_name,
@@ -141,7 +141,7 @@ function oel_polices_texte($wp_customize, $section, $setting_name, $id_control, 
 }
 
 
-function oel_graisse_setting($wp_customize, $section, $setting_name, $id_control, $label)
+function oel_font_weight_setting($wp_customize, $section, $setting_name, $id_control, $label)
 {
 	$wp_customize->add_setting($setting_name,
 								array(
@@ -179,7 +179,7 @@ function oel_graisse_setting($wp_customize, $section, $setting_name, $id_control
 
 
 
-function oel_style_setting($wp_customize, $section, $setting_name, $id_control, $label)
+function oel_font_style_setting($wp_customize, $section, $setting_name, $id_control, $label)
 {
 	$wp_customize->add_setting($setting_name,
 								array(

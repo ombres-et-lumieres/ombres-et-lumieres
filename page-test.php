@@ -57,7 +57,8 @@ foreach ($liens as $lien)
 
 
 
-
+echo "font-size: ". get_theme_mod("setting_taille_police_article_H1", "1"). "em" .  "</br>";
+echo "font-family: " .  get_theme_mod("setting_police_article_titre_H1", "")  .  "</br>";
 
 
 
