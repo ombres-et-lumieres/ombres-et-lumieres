@@ -27,11 +27,13 @@ require get_template_directory() . '/customizer/customizer-functions.php';
 require get_template_directory() . '/customizer/typographie.php';
 
 
-
-
-
 /* le css du customizer */
 require get_template_directory() . '/customizer/css.php';
+
+if (is_plugin_active('wplr-sync/wplr-sync.php'))
+{
+	require get_template_directory() . '/customizer/customize-wp-lr.php';
+}
 
 
 

@@ -22,7 +22,18 @@ function oetl_pannels_register($wp_customize)
 							);
 
 
-
+	if (is_plugin_active('wplr-sync/wplr-sync.php'))
+	{
+		$wp_customize->add_panel( 'wp_lr_sync', array
+										(
+										    'priority'       => 1,
+										    'capability'     => 'edit_theme_options',
+										    'theme_supports' => '',
+										    'title'          => 'galerie de wp/lr',
+										    'description'    => 'mise en page de la galerie de wp/lr',
+										)
+						);
+	}
 
 
 

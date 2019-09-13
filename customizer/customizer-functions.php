@@ -1,4 +1,72 @@
 <?php
+function oetl_polices_textes($type)
+{
+	$titres =  array(
+					"" => "défaut",
+					"Euphoria" => "Euphoria",
+					"Raleway" => "Raleway",
+					"Dancing Script" => "Dancing Script"
+				);
+	$textes = array(
+					"" 			 => "défaut",
+					"Open Sans"  => "Open Sans",
+					"Roboto" 	 => "Roboto",
+					"Gayathri" 	 => "Gayathri",
+					"Lato" 		 => "Lato",
+					"Montserrat" => "Montserrat"
+				);
+
+	if("titres" ==$type)
+	{
+		return $titres;
+	}
+	else return $textes;
+}
+
+function oetl_font_sizes_types($size_type)
+{
+	$em = array(
+		        'min'   => 1,
+		        'max'   => 4,
+		        'step'  => 0.1,
+		    );
+
+	$font_size_pourcent = array(
+			        'min'   => 50,
+			        'max'   => 150,
+			        'step'  => 1,
+			    );
+
+	$border_size_pourcent = array(
+			        'min'   => 0,
+			        'max'   => 10,
+			        'step'  => 1,
+			    );
+
+	$margin_size = array(
+			        'min'   => 0,
+			        'max'   => 25,
+			        'step'  => 1,
+			    );
+
+	switch($size_type)
+		{
+			case "em": return $em;
+						break;
+
+			case "font_size_pourcent": return $font_size_pourcent;
+						break;
+
+			case "border_size": return $border_size_pourcent;
+						break;
+
+			case "margin_size": return $margin_size;
+						break;
+		}
+}
+
+
+
 function oel_color_setting($wp_customize, $section, $setting_name, $id_control, $label)
 {
 	$wp_customize->add_setting( $setting_name ,
@@ -21,7 +89,7 @@ function oel_color_setting($wp_customize, $section, $setting_name, $id_control, 
 }
 
 
-function oel_size_setting($wp_customize, $section, $setting_name, $id_control, $label)
+function oel_size_setting($wp_customize, $section, $setting_name, $id_control, $size_type, $label)
 {
 	$wp_customize->add_setting( $setting_name,
 								array(
@@ -35,47 +103,18 @@ function oel_size_setting($wp_customize, $section, $setting_name, $id_control, $
 
 	$wp_customize->add_control( $setting_name,
 								array(
-									'label'    => __($label),
+									'label'    => __($label, "ombres-et-lumieres"),
 									'section'  => $section,
 									'settings' => $setting_name,
 									'type'     => 'number',
-									'input_attrs' => array(
-													        'min'   => 1,
-													        'max'   => 4,
-													        'step'  => 0.1,
-													    ),
+									'input_attrs' => oetl_font_sizes_types($size_type)
 									)
 								);
 }
 
-function oel_size_setting_px($wp_customize, $section, $setting_name, $id_control, $label)
-{
-	$wp_customize->add_setting( $setting_name,
-								array(
-									    "capability" => "edit_posts",
-									    "default" => get_theme_mod($setting_name, "" )
-									)
-								);
 
 
-
-
-	$wp_customize->add_control( $setting_name,
-								array(
-									'label'    => __($label . "(en px)"),
-									'section'  => $section,
-									'settings' => $setting_name,
-									'type'     => 'number',
-									'input_attrs' => array(
-													        'min'   => 1,
-													        'max'   => 25,
-													        'step'  => 1,
-													    ),
-									)
-								);
-}
-
-function oel_font_family_Hn($wp_customize, $section, $setting_name, $id_control, $label)
+function oel_font_family($wp_customize, $section, $setting_name, $id_control, $type, $label)
 {
 
 	$wp_customize->add_setting($setting_name,
@@ -95,50 +134,11 @@ function oel_font_family_Hn($wp_customize, $section, $setting_name, $id_control,
 										"section" => $section,
 										"settings" => $setting_name,
 										"type" => "select",
-										"choices"=> array(
-															"" => "défaut",
-															"Euphoria" => "Euphoria",
-															"Raleway" => "Raleway",
-															"Dancing Script" => "Dancing Script"
-														)
-									)
-
-								);
-}
-
-
-
-function oel_font_family($wp_customize, $section, $setting_name, $id_control, $label)
-{
-
-	$wp_customize->add_setting($setting_name,
-								array(
-										"capability" => "edit_posts",
-										'default'	=>	get_theme_mod($setting_name, ""),
-									)
-								);
-
-
-
-
-
-	$wp_customize->add_control($id_control,
-								array(
-										"label" => $label,
-										"section" => $section,
-										"settings" => $setting_name,
-										"type" => "select",
-										"choices"=> array(
-															"" 			 => "défaut",
-															"Open Sans"  => "Open Sans",
-															"Roboto" 	 => "Roboto",
-															"Gayathri" 	 => "Gayathri",
-															"Lato" 		 => "Lato",
-															"Montserrat" => "Montserrat"
-														)
+										"choices"=> oetl_polices_textes($type)
 									)
 								);
 }
+
 
 
 function oel_font_weight_setting($wp_customize, $section, $setting_name, $id_control, $label)
